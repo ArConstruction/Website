@@ -10,26 +10,13 @@ import { company } from "@/lib/data";
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const slides = [
-  {
-    src: "/images/storage-facility-dusk.jpg",
-    alt: "AR Construction renovated self-storage facility at dusk",
-  },
-  {
-    src: "/images/epoxy-team-prep.jpg",
-    alt: "AR Construction crew preparing an epoxy floor",
-  },
-  {
-    src: "/images/polished-concrete-hall.jpg",
-    alt: "Polished concrete exhibition hall by AR Construction",
-  },
-  {
-    src: "/images/warehouse-fitout.jpg",
-    alt: "Commercial warehouse fit-out by AR Construction",
-  },
-  {
-    src: "/images/facility-exterior-dusk.jpg",
-    alt: "AR Construction commercial facility exterior at dusk",
-  },
+  { src: "/images/slider-1.jpg",  alt: "AR Construction project site" },
+  { src: "/images/slider-2.avif", alt: "AR Construction commercial build" },
+  { src: "/images/slider-3.jpg",  alt: "AR Construction self-storage facility" },
+  { src: "/images/slider-4.webp", alt: "AR Construction concrete leveling" },
+  { src: "/images/slider-5.jpg",  alt: "AR Construction Oakville project" },
+  { src: "/images/slider-6.jpg",  alt: "AR Construction interior renovation" },
+  { src: "/images/slider-7.webp", alt: "AR Construction BMO Field construction" },
 ];
 
 export default function Hero() {
