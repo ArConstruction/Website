@@ -1,9 +1,18 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Phone, Mail, MapPin, Globe, ArrowUpRight } from "lucide-react";
 import { company, navLinks, services } from "@/lib/data";
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  if (pathname?.startsWith("/track")) {
+    return null;
+  }
+
   return (
     <footer className="border-t border-white/10 bg-ink-800">
       {/* CTA strip */}

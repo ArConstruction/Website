@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AR Construction Website
+
+Next.js site for AR Construction with a Supabase-backed contractor tracking portal.
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies and run the development server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The contractor portal is available at [http://localhost:3000/track](http://localhost:3000/track).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment
 
-## Learn More
+Create `.env.local` for local development and configure the same variables in production:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SECRET_KEY=
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`SUPABASE_SECRET_KEY` is used only by the server-side contractor signup API. Do not expose it to the browser.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Supabase
 
-## Deploy on Vercel
+The tracking portal uses:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Supabase Auth for admin and contractor login.
+- `track_profiles` for user roles.
+- `work_tasks` for task assignment, completion proof, admin rejection notes, and status.
+- private `task-proof-photos` storage bucket for proof images.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Schema files are in `supabase/`:
+
+- `track-schema.sql` for new projects.
+- `track-rejections-migration.sql` for adding rejection/follow-up support to an existing project.
+
+## Deployment
+
+For Vercel or another Next.js host:
+
+1. Set the environment variables above.
+2. Add the production domains:
+   - `arconstruction.ca`
+   - `www.arconstruction.ca`
+   - `track.arcontruction.ca`
+   - `track.arconstruction.ca`
+3. Point the tracking subdomain DNS to the same deployment. [src/proxy.ts](src/proxy.ts) rewrites tracking-subdomain requests to `/track`.
+4. Run `npm run build` before release.
