@@ -29,7 +29,7 @@ export const company = {
     line2: "Toronto, Ontario M2J 4V6",
   },
   description:
-    "With over 25 years of experience, AR Construction has established itself as a leader in providing innovative and professional construction and renovation services — constructing and redesigning office buildings, retail spaces, and commercial & residential properties.",
+    "With over 25 years of experience, AR Construction has established itself as a leader in providing innovative and professional construction and renovation services, constructing and redesigning office buildings, retail spaces, and commercial & residential properties.",
 };
 
 export type Service = {
@@ -45,10 +45,9 @@ export const services: Service[] = [
     slug: "redesign-spaces",
     title: "Redesign Spaces",
     blurb:
-      "Full-scope reimagining of office buildings, retail and living spaces — from concept to a refined, functional finish.",
+      "Full-scope reimagining of office buildings, retail and living spaces, from concept to a refined, functional finish.",
     icon: Ruler,
-    image:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/office-polished-corridor.jpg",
   },
   {
     slug: "drywall-painting",
@@ -65,8 +64,7 @@ export const services: Service[] = [
     blurb:
       "Seamless, high-strength epoxy systems engineered for commercial, industrial and showroom environments.",
     icon: Layers,
-    image:
-      "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/epoxy-exhibition-hall.jpg",
   },
   {
     slug: "carpet-flooring",
@@ -74,8 +72,7 @@ export const services: Service[] = [
     blurb:
       "Expert supply and installation of commercial and residential carpet for comfort, acoustics and style.",
     icon: Footprints,
-    image:
-      "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/carpet-corridor.jpg",
   },
   {
     slug: "plumbing",
@@ -101,8 +98,7 @@ export const services: Service[] = [
     blurb:
       "Foundation waterproofing and structural concrete & masonry built to protect and last for decades.",
     icon: Droplets,
-    image:
-      "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/concrete-grinding.jpg",
   },
   {
     slug: "fences-decks",
@@ -186,7 +182,7 @@ export const processSteps: ProcessStep[] = [
     no: "02",
     title: "Design & Planning",
     description:
-      "Detailed drawings, material selection and permitting — every detail engineered before we break ground.",
+      "Detailed drawings, material selection and permitting, with every detail engineered before we break ground.",
   },
   {
     no: "03",
@@ -212,52 +208,60 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Consumers Road Office Tower",
-    category: "Commercial Build",
+    title: "Convention Centre Polished Concrete",
+    category: "Polished Concrete",
     location: "Toronto, ON",
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/polished-concrete-floor.jpg",
     size: "tall",
   },
   {
-    title: "Modern Retail Flagship",
-    category: "Retail Redesign",
-    location: "North York, ON",
-    image:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=80",
+    title: "Self-Storage Facility Renovation",
+    category: "Commercial Renovation",
+    location: "Vaughan, ON",
+    image: "/images/storage-units-interior.jpg",
     size: "wide",
   },
   {
-    title: "Executive Residence",
-    category: "Residential Renovation",
-    location: "Toronto, ON",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80",
-    size: "square",
-  },
-  {
-    title: "Industrial Epoxy Facility",
-    category: "Epoxy Flooring",
+    title: "Concrete Surface Preparation",
+    category: "Surface Preparation",
     location: "Mississauga, ON",
-    image:
-      "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/concrete-grinding.jpg",
     size: "square",
   },
   {
-    title: "Corporate Workspace Fit-Out",
-    category: "Office Redesign",
+    title: "Pedway Carpet Renewal",
+    category: "Carpet Flooring",
     location: "Toronto, ON",
-    image:
-      "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/carpet-pedway.jpg",
+    size: "square",
+  },
+  {
+    title: "Epoxy Floor Installation",
+    category: "Epoxy Flooring",
+    location: "North York, ON",
+    image: "/images/epoxy-team-prep.jpg",
     size: "wide",
   },
   {
-    title: "Waterfront Concrete Works",
-    category: "Concrete & Masonry",
-    location: "Etobicoke, ON",
-    image:
-      "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=1400&q=80",
-    size: "tall",
+    title: "Corporate Office Refinishing",
+    category: "Polished Concrete",
+    location: "Toronto, ON",
+    image: "/images/office-polished-corridor.jpg",
+    size: "square",
+  },
+  {
+    title: "Exhibition Hall Polished Floor",
+    category: "Polished Concrete",
+    location: "Toronto, ON",
+    image: "/images/polished-concrete-hall.jpg",
+    size: "square",
+  },
+  {
+    title: "Skywalk Carpet Installation",
+    category: "Carpet Flooring",
+    location: "Toronto, ON",
+    image: "/images/carpet-walkway.jpg",
+    size: "square",
   },
 ];
 

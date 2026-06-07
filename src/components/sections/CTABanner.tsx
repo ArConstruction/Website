@@ -9,8 +9,8 @@ export default function CTABanner() {
     <section className="relative overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1590725140246-20acdee442be?auto=format&fit=crop&w=2000&q=80"
-          alt="Construction crane against sky"
+          src="/images/facility-exterior-dusk.jpg"
+          alt="Renovated commercial facility exterior at dusk"
           fill
           className="object-cover"
         />

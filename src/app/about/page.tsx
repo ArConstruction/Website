@@ -19,7 +19,7 @@ export default function AboutPage() {
         eyebrow="About AR Construction"
         title="Built on 25 Years of Trust"
         intro="A leader in innovative, professional construction and renovation across the Greater Toronto Area."
-        image="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=2000&q=80"
+        image="/images/epoxy-team-prep.jpg"
         crumbs={[{ label: "About" }]}
       />
 
@@ -29,8 +29,8 @@ export default function AboutPage() {
           <Reveal className="relative">
             <div className="relative aspect-[4/3] overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80"
-                alt="AR Construction leadership reviewing blueprints"
+                src="/images/epoxy-exhibition-hall.jpg"
+                alt="Completed epoxy floor in a large exhibition hall"
                 fill
                 className="object-cover"
               />
@@ -69,7 +69,7 @@ export default function AboutPage() {
             <span className="eyebrow text-gold">Our Mission</span>
             <p className="font-display mt-6 text-3xl font-medium leading-snug text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
               &ldquo;Enhancing lives through superior construction and renovation
-              excellence — building spaces that work harder, last longer and feel{" "}
+              excellence, building spaces that work harder, last longer and feel{" "}
               <span className="text-gold">extraordinary.</span>&rdquo;
             </p>
           </Reveal>

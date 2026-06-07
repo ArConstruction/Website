@@ -9,7 +9,7 @@ export default function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Front-end demo only — wire to your backend / email service here.
+    // Front-end demo only; wire to your backend / email service here.
     setSent(true);
   };
 

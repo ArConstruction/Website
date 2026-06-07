@@ -21,7 +21,7 @@ const oswald = Oswald({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.arconstruction.ca"),
   title: {
-    default: `${company.name} | ${company.tagline}`,
+    default: company.name,
     template: `%s | ${company.name}`,
   },
   description: company.description,

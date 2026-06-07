@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Phone, Mail, MapPin, Globe, ArrowUpRight } from "lucide-react";
 import { company, navLinks, services } from "@/lib/data";
@@ -25,9 +26,13 @@ export default function Footer() {
         {/* Brand */}
         <div>
           <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center bg-gold font-display text-lg font-bold text-ink">
-              AR
-            </span>
+            <Image
+              src="/images/logo-mark.png"
+              alt={company.name}
+              width={52}
+              height={50}
+              className="h-12 w-auto"
+            />
             <span className="font-display text-lg font-bold tracking-wide text-white">
               AR CONSTRUCTION
             </span>

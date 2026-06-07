@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -7,24 +8,17 @@ import { Menu, X, Phone } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { company, navLinks } from "@/lib/data";
 
-function Logo({ scrolled }: { scrolled: boolean }) {
+function Logo() {
   return (
-    <Link href="/" className="group flex items-center gap-3" aria-label={company.name}>
-      <span className="flex h-10 w-10 items-center justify-center bg-gold font-display text-lg font-bold text-ink transition-transform duration-300 group-hover:rotate-3">
-        AR
-      </span>
-      <span className="flex flex-col leading-none">
-        <span
-          className={`font-display text-lg font-bold tracking-wide transition-colors ${
-            scrolled ? "text-white" : "text-white"
-          }`}
-        >
-          AR CONSTRUCTION
-        </span>
-        <span className="text-[0.62rem] uppercase tracking-[0.3em] text-gold">
-          Build · Renovate · Restore
-        </span>
-      </span>
+    <Link href="/" className="group flex items-center" aria-label={company.name}>
+      <Image
+        src="/images/logo-full.png"
+        alt={company.name}
+        width={140}
+        height={151}
+        priority
+        className="h-16 w-auto transition-transform duration-300 group-hover:scale-105"
+      />
     </Link>
   );
 }
@@ -52,7 +46,7 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-8">
-        <Logo scrolled={scrolled} />
+        <Logo />
 
         {/* Desktop links */}
         <div className="hidden items-center gap-9 lg:flex">

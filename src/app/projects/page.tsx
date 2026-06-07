@@ -19,7 +19,7 @@ export default function ProjectsPage() {
         eyebrow="Our Portfolio"
         title="Work We're Proud Of"
         intro="Office, retail, commercial and residential projects delivered with precision across the GTA."
-        image="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=2000&q=80"
+        image="/images/epoxy-application.jpg"
         crumbs={[{ label: "Projects" }]}
       />
 

@@ -8,7 +8,7 @@ const highlights = [
   "Innovative, professional construction & renovation",
   "Licensed, insured and fully code-compliant",
   "Commercial and residential expertise under one roof",
-  "On-time, on-budget delivery — every project",
+  "On-time, on-budget delivery on every project",
 ];
 
 export default function AboutPreview() {
@@ -19,16 +19,16 @@ export default function AboutPreview() {
         <Reveal className="relative">
           <div className="relative aspect-[4/5] overflow-hidden">
             <Image
-              src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80"
-              alt="AR Construction team reviewing plans on site"
+              src="/images/polished-concrete-hall.jpg"
+              alt="Polished concrete floor in a large convention hall by AR Construction"
               fill
               className="object-cover"
             />
           </div>
           <div className="absolute -bottom-8 -right-4 hidden aspect-square w-48 overflow-hidden border-4 border-ink sm:block lg:-right-8 lg:w-60">
             <Image
-              src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80"
-              alt="Detailed finishing work"
+              src="/images/floor-grinding-detail.jpg"
+              alt="Diamond floor grinding equipment preparing a concrete slab"
               fill
               className="object-cover"
             />

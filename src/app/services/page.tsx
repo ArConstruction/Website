@@ -19,8 +19,8 @@ export default function ServicesPage() {
       <PageHeader
         eyebrow="Our Services"
         title="Everything You Need to Build & Renovate"
-        intro="One accountable team for the full scope of your project — from demolition and structure to the finest finishes."
-        image="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2000&q=80"
+        intro="One accountable team for the full scope of your project, from demolition and structure to the finest finishes."
+        image="/images/polished-concrete-floor.jpg"
         crumbs={[{ label: "Services" }]}
       />
 
@@ -30,7 +30,7 @@ export default function ServicesPage() {
           <SectionHeading
             eyebrow="Who We Serve"
             title="Constructing & Redesigning Every Space"
-            intro="Office buildings, retail spaces, commercial and residential properties — built and reimagined to the highest standard."
+            intro="Office buildings, retail spaces, commercial and residential properties, built and reimagined to the highest standard."
           />
           <div className="mt-12 grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
             {sectors.map((sector, i) => {

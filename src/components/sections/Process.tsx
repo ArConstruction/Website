@@ -9,7 +9,7 @@ export default function Process() {
       {/* Background accent */}
       <div className="absolute right-0 top-0 h-full w-1/2 opacity-20">
         <Image
-          src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=80"
+          src="/images/epoxy-application.jpg"
           alt=""
           fill
           className="object-cover"

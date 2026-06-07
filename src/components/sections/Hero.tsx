@@ -14,8 +14,8 @@ export default function Hero() {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=2400&q=80"
-          alt="Modern construction site at dusk"
+          src="/images/storage-facility-dusk.jpg"
+          alt="AR Construction renovated self-storage facility at dusk"
           fill
           priority
           className="object-cover"
@@ -60,7 +60,7 @@ export default function Hero() {
             className="mt-7 max-w-xl text-lg leading-relaxed text-white/70"
           >
             Constructing and redesigning office buildings, retail spaces, and
-            commercial &amp; residential properties — enhancing lives through
+            commercial &amp; residential properties, enhancing lives through
             craftsmanship that lasts.
           </motion.p>
 

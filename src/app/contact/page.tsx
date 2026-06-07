@@ -42,7 +42,7 @@ export default function ContactPage() {
         eyebrow="Get In Touch"
         title="Let's Talk About Your Project"
         intro="Tell us what you're planning and we'll get back to you with a free, no-obligation consultation."
-        image="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2000&q=80"
+        image="/images/carpet-corridor.jpg"
         crumbs={[{ label: "Contact" }]}
       />
 
