@@ -46,7 +46,7 @@ export default function ContactPage() {
         crumbs={[{ label: "Contact" }]}
       />
 
-      <section className="bg-ink py-24 sm:py-32">
+      <section className="bg-ink pt-14 pb-24 sm:pt-20 sm:pb-32">
         <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
           {/* Info column */}
           <div>

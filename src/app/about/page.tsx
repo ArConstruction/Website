@@ -16,8 +16,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHeader
-        eyebrow="About AR Construction"
-        title="Built on 25 Years of Trust"
+        title="25 Years of Excellence in Construction"
         intro="A leader in innovative, professional construction and renovation across the Greater Toronto Area."
         image="/images/epoxy-team-prep.jpg"
         crumbs={[{ label: "About" }]}
@@ -29,8 +28,8 @@ export default function AboutPage() {
           <Reveal className="relative">
             <div className="relative aspect-[4/3] overflow-hidden">
               <Image
-                src="/images/epoxy-exhibition-hall.jpg"
-                alt="Completed epoxy floor in a large exhibition hall"
+                src="/images/warehouse-fitout.jpg"
+                alt="AR Construction commercial warehouse fit-out in progress"
                 fill
                 className="object-cover"
               />

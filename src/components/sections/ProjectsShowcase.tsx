@@ -20,7 +20,6 @@ function ProjectTile({ project }: { project: Project }) {
         <h3 className="mt-2 font-display text-2xl font-semibold text-white">
           {project.title}
         </h3>
-        <p className="mt-1 text-sm text-white/60">{project.location}</p>
       </div>
     </div>
   );

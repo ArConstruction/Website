@@ -20,14 +20,14 @@ export default function PageHeader({
   crumbs = [],
 }: PageHeaderProps) {
   return (
-    <section className="relative flex min-h-[58vh] items-end overflow-hidden bg-ink pt-28">
+    <section className="relative flex min-h-[42vh] items-end overflow-hidden bg-ink pt-28">
       <div className="absolute inset-0">
         <Image src={image} alt="" fill priority className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/50" />
         <div className="noise absolute inset-0 opacity-50" />
       </div>
 
-      <div className="relative mx-auto w-full max-w-7xl px-5 pb-16 sm:px-8">
+      <div className="relative mx-auto w-full max-w-7xl px-5 pb-12 sm:px-8">
         {/* Breadcrumbs */}
         <nav className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-white/50">
           <Link href="/" className="transition-colors hover:text-gold">

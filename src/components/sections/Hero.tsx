@@ -2,24 +2,68 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "motion/react";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import { ArrowUpRight, Phone, Star } from "lucide-react";
 import { company } from "@/lib/data";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
+const slides = [
+  {
+    src: "/images/storage-facility-dusk.jpg",
+    alt: "AR Construction renovated self-storage facility at dusk",
+  },
+  {
+    src: "/images/epoxy-team-prep.jpg",
+    alt: "AR Construction crew preparing an epoxy floor",
+  },
+  {
+    src: "/images/polished-concrete-hall.jpg",
+    alt: "Polished concrete exhibition hall by AR Construction",
+  },
+  {
+    src: "/images/warehouse-fitout.jpg",
+    alt: "Commercial warehouse fit-out by AR Construction",
+  },
+  {
+    src: "/images/facility-exterior-dusk.jpg",
+    alt: "AR Construction commercial facility exterior at dusk",
+  },
+];
+
 export default function Hero() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden bg-ink">
-      {/* Background image */}
+      {/* Sliding background images */}
       <div className="absolute inset-0">
-        <Image
-          src="/images/storage-facility-dusk.jpg"
-          alt="AR Construction renovated self-storage facility at dusk"
-          fill
-          priority
-          className="object-cover"
-        />
+        <AnimatePresence initial={false}>
+          <motion.div
+            key={current}
+            className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+          >
+            <Image
+              src={slides[current].src}
+              alt={slides[current].alt}
+              fill
+              priority={current === 0}
+              className="object-cover"
+            />
+          </motion.div>
+        </AnimatePresence>
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/40" />
         <div className="noise absolute inset-0 opacity-60" />
@@ -36,7 +80,7 @@ export default function Hero() {
           >
             <span className="h-px w-10 bg-gold" />
             <span className="eyebrow text-gold">
-              {company.years}+ Years of Excellence · Toronto, ON
+              25 Years of Excellence in Construction in GTA
             </span>
           </motion.div>
 
@@ -59,9 +103,11 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.25, ease }}
             className="mt-7 max-w-xl text-lg leading-relaxed text-white/70"
           >
-            Constructing and redesigning office buildings, retail spaces, and
-            commercial &amp; residential properties, enhancing lives through
-            craftsmanship that lasts.
+            We believe that the spaces where we work, either constructing a
+            sleek corporate office, remodeling a retail space, or building a
+            residential property, our mission remains the same: to deliver
+            exceptional craftsmanship that enhances lives today and lasts for
+            decades to come.
           </motion.p>
 
           <motion.div
@@ -102,6 +148,20 @@ export default function Hero() {
             </p>
           </motion.div>
         </div>
+      </div>
+
+      {/* Slide indicator dots */}
+      <div className="absolute bottom-10 right-8 flex gap-2">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            aria-label={`Go to slide ${i + 1}`}
+            className={`h-1.5 rounded-full transition-all duration-500 ${
+              i === current ? "w-8 bg-gold" : "w-1.5 bg-white/35 hover:bg-white/60"
+            }`}
+          />
+        ))}
       </div>
 
       {/* Scroll hint */}

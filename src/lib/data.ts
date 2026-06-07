@@ -11,6 +11,8 @@ import {
   ShieldCheck,
   Building2,
   Ruler,
+  BrickWall,
+  DoorOpen,
   type LucideIcon,
 } from "lucide-react";
 
@@ -42,23 +44,6 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    slug: "redesign-spaces",
-    title: "Redesign Spaces",
-    blurb:
-      "Full-scope reimagining of office buildings, retail and living spaces, from concept to a refined, functional finish.",
-    icon: Ruler,
-    image: "/images/office-polished-corridor.jpg",
-  },
-  {
-    slug: "drywall-painting",
-    title: "Drywalling & Painting",
-    blurb:
-      "Precision drywall installation, taping and premium painting that delivers flawless, durable surfaces.",
-    icon: PaintRoller,
-    image:
-      "https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
     slug: "epoxy-flooring",
     title: "Epoxy Flooring",
     blurb:
@@ -73,6 +58,47 @@ export const services: Service[] = [
       "Expert supply and installation of commercial and residential carpet for comfort, acoustics and style.",
     icon: Footprints,
     image: "/images/carpet-corridor.jpg",
+  },
+  {
+    slug: "redesign-spaces",
+    title: "Redesign",
+    blurb:
+      "Full-scope reimagining of office buildings, retail and living spaces, from concept to a refined, functional finish.",
+    icon: Ruler,
+    image: "/images/office-polished-corridor.jpg",
+  },
+  {
+    slug: "waterproofing",
+    title: "Waterproofing",
+    blurb:
+      "Foundation and structural waterproofing systems built to keep spaces dry and protected for decades.",
+    icon: Droplets,
+    image: "/images/facility-exterior-dusk.jpg",
+  },
+  {
+    slug: "concrete-masonry",
+    title: "Concrete & Masonry",
+    blurb:
+      "Structural concrete and masonry, from grinding and surface prep to durable, precision block and stonework.",
+    icon: BrickWall,
+    image: "/images/concrete-grinding.jpg",
+  },
+  {
+    slug: "drywall-painting",
+    title: "Drywall & Paint",
+    blurb:
+      "Precision drywall installation, taping and premium painting that delivers flawless, durable surfaces.",
+    icon: PaintRoller,
+    image:
+      "https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    slug: "doors",
+    title: "Doors",
+    blurb:
+      "Supply and installation of interior, exterior and commercial doors, fitted for security, fit and finish.",
+    icon: DoorOpen,
+    image: "/images/warehouse-fitout.jpg",
   },
   {
     slug: "plumbing",
@@ -91,14 +117,6 @@ export const services: Service[] = [
     icon: Zap,
     image:
       "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    slug: "waterproofing-masonry",
-    title: "Waterproofing & Concrete Masonry",
-    blurb:
-      "Foundation waterproofing and structural concrete & masonry built to protect and last for decades.",
-    icon: Droplets,
-    image: "/images/concrete-grinding.jpg",
   },
   {
     slug: "fences-decks",
@@ -201,7 +219,6 @@ export const processSteps: ProcessStep[] = [
 export type Project = {
   title: string;
   category: string;
-  location: string;
   image: string;
   size: "tall" | "wide" | "square";
 };
@@ -210,58 +227,86 @@ export const projects: Project[] = [
   {
     title: "Convention Centre Polished Concrete",
     category: "Polished Concrete",
-    location: "Toronto, ON",
     image: "/images/polished-concrete-floor.jpg",
     size: "tall",
   },
   {
     title: "Self-Storage Facility Renovation",
     category: "Commercial Renovation",
-    location: "Vaughan, ON",
     image: "/images/storage-units-interior.jpg",
     size: "wide",
   },
   {
     title: "Concrete Surface Preparation",
-    category: "Surface Preparation",
-    location: "Mississauga, ON",
+    category: "Concrete & Masonry",
     image: "/images/concrete-grinding.jpg",
     size: "square",
   },
   {
     title: "Pedway Carpet Renewal",
     category: "Carpet Flooring",
-    location: "Toronto, ON",
     image: "/images/carpet-pedway.jpg",
     size: "square",
   },
   {
     title: "Epoxy Floor Installation",
     category: "Epoxy Flooring",
-    location: "North York, ON",
     image: "/images/epoxy-team-prep.jpg",
     size: "wide",
   },
   {
     title: "Corporate Office Refinishing",
-    category: "Polished Concrete",
-    location: "Toronto, ON",
+    category: "Redesign",
     image: "/images/office-polished-corridor.jpg",
     size: "square",
   },
   {
     title: "Exhibition Hall Polished Floor",
     category: "Polished Concrete",
-    location: "Toronto, ON",
     image: "/images/polished-concrete-hall.jpg",
     size: "square",
   },
   {
     title: "Skywalk Carpet Installation",
     category: "Carpet Flooring",
-    location: "Toronto, ON",
     image: "/images/carpet-walkway.jpg",
     size: "square",
+  },
+  {
+    title: "Corporate Lounge Carpet",
+    category: "Carpet Flooring",
+    image: "/images/carpet-lounge.jpg",
+    size: "square",
+  },
+  {
+    title: "Commercial Carpet Fit-Out",
+    category: "Carpet Flooring",
+    image: "/images/carpet-team.jpg",
+    size: "wide",
+  },
+  {
+    title: "Self-Storage Corridor Build",
+    category: "Commercial Renovation",
+    image: "/images/storage-corridor.jpg",
+    size: "square",
+  },
+  {
+    title: "Warehouse Fit-Out",
+    category: "Commercial Renovation",
+    image: "/images/warehouse-fitout.jpg",
+    size: "square",
+  },
+  {
+    title: "Epoxy Application In Progress",
+    category: "Epoxy Flooring",
+    image: "/images/epoxy-application.jpg",
+    size: "square",
+  },
+  {
+    title: "Facility Exterior Renovation",
+    category: "Waterproofing",
+    image: "/images/facility-exterior-dusk.jpg",
+    size: "wide",
   },
 ];
 

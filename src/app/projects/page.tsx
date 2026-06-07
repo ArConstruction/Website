@@ -23,7 +23,7 @@ export default function ProjectsPage() {
         crumbs={[{ label: "Projects" }]}
       />
 
-      <section className="bg-ink py-24 sm:py-32">
+      <section className="bg-ink pt-14 pb-24 sm:pt-20 sm:pb-32">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <SectionHeading
             eyebrow="Selected Work"
@@ -52,7 +52,6 @@ export default function ProjectsPage() {
                     <h3 className="mt-2 font-display text-2xl font-semibold text-white">
                       {project.title}
                     </h3>
-                    <p className="mt-1 text-sm text-white/60">{project.location}</p>
                   </div>
                 </div>
               </Reveal>
