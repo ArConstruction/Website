@@ -30,7 +30,7 @@ function ThemeToggle({ className }: { className?: string }) {
     <button
       onClick={toggle}
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-      className={`flex h-10 w-10 items-center justify-center rounded-sm border border-white/20 text-white/70 transition-all duration-300 hover:border-gold hover:text-gold ${className ?? ""}`}
+      className={`flex h-10 w-10 items-center justify-center text-white/70 transition-all duration-300 hover:text-gold ${className ?? ""}`}
     >
       {theme === "dark" ? (
         <Sun className="h-4 w-4" />
