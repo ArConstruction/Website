@@ -106,6 +106,63 @@ body {
   background-size: 4px 4px;
 }
 
+/* ============================================================
+   Light Mode
+   ============================================================ */
+html[data-theme="light"] {
+  color-scheme: light;
+  --color-ink: #f4f3f0;
+  --color-ink-800: #eae9e6;
+  --color-ink-700: #e0dfdc;
+  --color-ink-600: #d7d6d2;
+  --color-ink-500: #cac9c4;
+  --color-line: #d4d3ce;
+  --background: #f4f3f0;
+  --foreground: #111111;
+}
+
+html[data-theme="light"] body {
+  background: var(--color-ink);
+  color: #111111;
+}
+
+/* White text → dark text */
+html[data-theme="light"] .text-white { color: #111111 !important; }
+html[data-theme="light"] .text-white\/85 { color: rgb(17 17 17 / 0.85) !important; }
+html[data-theme="light"] .text-white\/80 { color: rgb(17 17 17 / 0.8) !important; }
+html[data-theme="light"] .text-white\/75 { color: rgb(17 17 17 / 0.75) !important; }
+html[data-theme="light"] .text-white\/70 { color: rgb(17 17 17 / 0.7) !important; }
+html[data-theme="light"] .text-white\/65 { color: rgb(17 17 17 / 0.65) !important; }
+html[data-theme="light"] .text-white\/60 { color: rgb(17 17 17 / 0.6) !important; }
+html[data-theme="light"] .text-white\/55 { color: rgb(17 17 17 / 0.55) !important; }
+html[data-theme="light"] .text-white\/50 { color: rgb(17 17 17 / 0.5) !important; }
+html[data-theme="light"] .text-white\/45 { color: rgb(17 17 17 / 0.45) !important; }
+html[data-theme="light"] .text-white\/40 { color: rgb(17 17 17 / 0.4) !important; }
+
+/* Keep text-ink dark so gold buttons stay readable (bg-gold text-ink) */
+html[data-theme="light"] .text-ink { color: #111111 !important; }
+
+/* White borders → dark borders */
+html[data-theme="light"] .border-white\/10 { border-color: rgb(17 17 17 / 0.12) !important; }
+html[data-theme="light"] .border-white\/25 { border-color: rgb(17 17 17 / 0.25) !important; }
+html[data-theme="light"] .border-white\/5  { border-color: rgb(17 17 17 / 0.07) !important; }
+
+/* White bg overlays → dark overlays */
+html[data-theme="light"] .bg-white\/10 { background-color: rgb(17 17 17 / 0.08) !important; }
+
+/* Noise overlay */
+html[data-theme="light"] .noise {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+/* Scrollbar */
+html[data-theme="light"] ::-webkit-scrollbar-track { background: #e8e7e4; }
+html[data-theme="light"] ::-webkit-scrollbar-thumb { background: #b8b7b2; }
+
+/* Theme toggle border in light mode */
+html[data-theme="light"] .border-white\/20 { border-color: rgb(17 17 17 / 0.2) !important; }
+html[data-theme="light"] .text-white\/70 { color: rgb(17 17 17 / 0.7) !important; }
+
 /* Marquee */
 @keyframes marquee {
   0% {

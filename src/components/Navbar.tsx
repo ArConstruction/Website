@@ -4,9 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, Sun, Moon } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { company, navLinks } from "@/lib/data";
+import { useTheme } from "@/lib/theme";
 
 function Logo() {
   return (
@@ -20,6 +21,23 @@ function Logo() {
         className="h-16 w-auto transition-transform duration-300 group-hover:scale-105"
       />
     </Link>
+  );
+}
+
+function ThemeToggle({ className }: { className?: string }) {
+  const { theme, toggle } = useTheme();
+  return (
+    <button
+      onClick={toggle}
+      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+      className={`flex h-10 w-10 items-center justify-center rounded-sm border border-white/20 text-white/70 transition-all duration-300 hover:border-gold hover:text-gold ${className ?? ""}`}
+    >
+      {theme === "dark" ? (
+        <Sun className="h-4 w-4" />
+      ) : (
+        <Moon className="h-4 w-4" />
+      )}
+    </button>
   );
 }
 
@@ -70,7 +88,7 @@ export default function Navbar() {
           })}
         </div>
 
-        <div className="hidden items-center gap-5 lg:flex">
+        <div className="hidden items-center gap-4 lg:flex">
           <a
             href={company.phoneHref}
             className="flex items-center gap-2 text-sm font-medium text-white/80 transition-colors hover:text-gold"
@@ -84,16 +102,20 @@ export default function Navbar() {
           >
             Get a Quote
           </Link>
+          <ThemeToggle />
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setOpen((v) => !v)}
-          className="flex h-11 w-11 items-center justify-center text-white lg:hidden"
-          aria-label="Toggle menu"
-        >
-          {open ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
-        </button>
+        {/* Mobile: theme toggle + hamburger */}
+        <div className="flex items-center gap-2 lg:hidden">
+          <ThemeToggle />
+          <button
+            onClick={() => setOpen((v) => !v)}
+            className="flex h-11 w-11 items-center justify-center text-white"
+            aria-label="Toggle menu"
+          >
+            {open ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile menu */}

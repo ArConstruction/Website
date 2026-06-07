@@ -3,6 +3,7 @@ import { Inter, Oswald } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { ThemeProvider } from "@/lib/theme";
 import { company } from "@/lib/data";
 
 const inter = Inter({
@@ -54,9 +55,11 @@ export default function RootLayout({
       className={`${inter.variable} ${oswald.variable} h-full`}
     >
       <body className="min-h-full flex flex-col bg-ink text-white">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <ThemeProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
