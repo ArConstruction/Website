@@ -8,8 +8,10 @@ import { ArrowLeft, ArrowRight, HardHat, Loader2, ShieldCheck } from "lucide-rea
 import { getTrackSupabase } from "@/lib/supabaseTrack";
 
 const inputClass =
-  "w-full border border-white/10 bg-ink-700 px-4 py-3 text-sm text-white outline-none transition placeholder:text-white/30 focus:border-gold";
-const labelClass = "text-xs font-semibold uppercase tracking-[0.18em] text-white/45";
+  "w-full min-h-11 border border-white/10 bg-ink-700 px-4 py-3 text-base text-white outline-none transition placeholder:text-white/30 focus:border-gold sm:min-h-0 sm:text-sm";
+const labelClass = "text-xs font-semibold uppercase tracking-[0.14em] text-white/45 sm:tracking-[0.18em]";
+const primaryButtonClass =
+  "inline-flex min-h-11 w-full items-center justify-center gap-2 bg-gold px-6 py-3.5 font-display text-sm font-semibold uppercase tracking-wider text-ink transition hover:bg-gold-light disabled:cursor-not-allowed disabled:opacity-60 sm:py-4";
 
 export default function TrackSignup() {
   const router = useRouter();
@@ -67,47 +69,48 @@ export default function TrackSignup() {
   }
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-ink text-white">
+    <main className="relative min-h-[100dvh] overflow-x-hidden bg-ink text-white supports-[min-height:100dvh]:min-h-dvh">
       <div className="absolute inset-0">
         <Image
           src="/images/epoxy-application.jpg"
           alt="AR Construction contractor work"
           fill
           priority
+          sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/92 to-ink/75 sm:bg-gradient-to-r sm:from-ink sm:via-ink/90 sm:to-ink/60" />
         <div className="noise absolute inset-0 opacity-50" />
       </div>
 
-      <div className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-10 px-5 py-10 sm:px-8 lg:grid-cols-[0.9fr_1.1fr]">
-        <section>
+      <div className="relative mx-auto flex min-h-[100dvh] max-w-7xl flex-col justify-center gap-8 px-4 py-8 supports-[min-height:100dvh]:min-h-dvh sm:gap-10 sm:px-8 sm:py-10 lg:grid lg:min-h-screen lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <section className="text-center lg:text-left">
           <Image
             src="/images/logo-full.png"
             alt="AR Construction"
             width={150}
             height={162}
-            className="h-20 w-auto"
+            className="mx-auto h-16 w-auto sm:h-20 lg:mx-0"
           />
-          <p className="eyebrow mt-10 text-gold">Contractor Access</p>
-          <h1 className="font-display mt-5 max-w-2xl text-5xl font-bold uppercase leading-none sm:text-6xl lg:text-7xl">
+          <p className="eyebrow mt-6 text-gold sm:mt-10">Contractor Access</p>
+          <h1 className="font-display mt-4 text-4xl font-bold uppercase leading-none sm:mt-5 sm:text-5xl lg:max-w-2xl lg:text-7xl">
             Create Your Track Account
           </h1>
-          <p className="mt-6 max-w-xl text-base leading-7 text-white/65">
-            Contractor accounts can receive assigned tasks, update field progress,
-            upload proof photos, and mark work complete.
+          <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-white/65 sm:mt-6 sm:text-base sm:leading-7 lg:mx-0">
+            Your admin must add you first. Sign up with the same email they used, or the phone
+            number they added if no email was provided.
           </p>
         </section>
 
-        <form onSubmit={handleSignup} className="border border-white/10 bg-ink-800/85 p-6 sm:p-8">
+        <form onSubmit={handleSignup} className="border border-white/10 bg-ink-800/85 p-5 sm:p-8">
           <HardHat className="h-8 w-8 text-gold" />
-          <h2 className="font-display mt-5 text-2xl font-semibold uppercase">
+          <h2 className="font-display mt-5 text-xl font-semibold uppercase sm:text-2xl">
             Contractor Signup
           </h2>
-          <div className="mt-8 grid gap-5 sm:grid-cols-2">
+          <div className="mt-6 grid gap-4 sm:mt-8 sm:grid-cols-2 sm:gap-5">
             <label className="block sm:col-span-2">
               <span className={labelClass}>Full Name</span>
-              <input className={`${inputClass} mt-2`} name="full_name" required />
+              <input className={`${inputClass} mt-2`} name="full_name" required autoComplete="name" />
             </label>
             <label className="block">
               <span className={labelClass}>Trade / Role</span>
@@ -120,11 +123,11 @@ export default function TrackSignup() {
             </label>
             <label className="block">
               <span className={labelClass}>Phone</span>
-              <input className={`${inputClass} mt-2`} name="phone" type="tel" />
+              <input className={`${inputClass} mt-2`} name="phone" type="tel" autoComplete="tel" />
             </label>
             <label className="block sm:col-span-2">
               <span className={labelClass}>Email</span>
-              <input className={`${inputClass} mt-2`} name="email" type="email" required />
+              <input className={`${inputClass} mt-2`} name="email" type="email" required autoComplete="email" />
             </label>
             <label className="block sm:col-span-2">
               <span className={labelClass}>Password</span>
@@ -134,6 +137,7 @@ export default function TrackSignup() {
                 type="password"
                 minLength={8}
                 required
+                autoComplete="new-password"
               />
             </label>
           </div>
@@ -144,18 +148,14 @@ export default function TrackSignup() {
             </p>
           )}
 
-          <div className="mt-7 grid gap-3 sm:grid-cols-[1fr_auto]">
-            <button
-              type="submit"
-              disabled={loading}
-              className="inline-flex items-center justify-center gap-2 bg-gold px-6 py-4 font-display text-sm font-semibold uppercase tracking-wider text-ink transition hover:bg-gold-light disabled:cursor-not-allowed disabled:opacity-60"
-            >
+          <div className="mt-6 grid gap-3 sm:mt-7">
+            <button type="submit" disabled={loading} className={primaryButtonClass}>
               {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <ArrowRight className="h-4 w-4" />}
               Create Account
             </button>
             <Link
               href="/track"
-              className="inline-flex items-center justify-center gap-2 border border-white/10 px-6 py-4 font-display text-sm font-semibold uppercase tracking-wider text-white/65 transition hover:border-gold hover:text-gold"
+              className="inline-flex min-h-11 w-full items-center justify-center gap-2 border border-white/10 px-6 py-3.5 font-display text-sm font-semibold uppercase tracking-wider text-white/65 transition hover:border-gold hover:text-gold sm:py-4"
             >
               <ArrowLeft className="h-4 w-4" />
               Login

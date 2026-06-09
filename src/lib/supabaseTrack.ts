@@ -117,13 +117,100 @@ export function getTrackSupabase() {
     return null;
   }
 
-  browserClient ??= createClient<TrackDatabase>(url, anonKey, {
-    auth: {
-      persistSession: true,
-      autoRefreshToken: true,
-      detectSessionInUrl: true,
-    },
-  });
+  if (!browserClient) {
+    clearCorruptedTrackAuthStorage(url);
+
+    browserClient = createClient<TrackDatabase>(url, anonKey, {
+      auth: {
+        persistSession: true,
+        autoRefreshToken: true,
+        detectSessionInUrl: true,
+      },
+    });
+  }
 
   return browserClient;
+}
+
+function isInvalidRefreshTokenError(error: unknown) {
+  const message =
+    error && typeof error === "object" && "message" in error && typeof error.message === "string"
+      ? error.message.toLowerCase()
+      : "";
+
+  return (
+    message.includes("refresh token") ||
+    message.includes("invalid jwt") ||
+    message.includes("session not found")
+  );
+}
+
+function getTrackAuthStorageKey(supabaseUrl: string) {
+  try {
+    const hostname = new URL(supabaseUrl).hostname;
+    const projectRef = hostname.split(".")[0];
+    return `sb-${projectRef}-auth-token`;
+  } catch {
+    return null;
+  }
+}
+
+function clearCorruptedTrackAuthStorage(supabaseUrl: string) {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  const storageKey = getTrackAuthStorageKey(supabaseUrl);
+
+  if (!storageKey) {
+    return;
+  }
+
+  const stored = window.localStorage.getItem(storageKey);
+
+  if (!stored) {
+    return;
+  }
+
+  try {
+    const parsed = JSON.parse(stored) as { refresh_token?: string | null };
+
+    if (!parsed.refresh_token) {
+      window.localStorage.removeItem(storageKey);
+    }
+  } catch {
+    window.localStorage.removeItem(storageKey);
+  }
+}
+
+export async function clearInvalidTrackSession(client: SupabaseClient<TrackDatabase>) {
+  await client.auth.signOut({ scope: "local" }).catch(() => undefined);
+}
+
+export async function getTrackSession(client: SupabaseClient<TrackDatabase>) {
+  const { url } = getSupabaseConfig();
+
+  if (url) {
+    clearCorruptedTrackAuthStorage(url);
+  }
+
+  try {
+    const { data, error } = await client.auth.getSession();
+
+    if (error) {
+      if (isInvalidRefreshTokenError(error)) {
+        await clearInvalidTrackSession(client);
+      }
+
+      return null;
+    }
+
+    return data.session ?? null;
+  } catch (error) {
+    if (isInvalidRefreshTokenError(error)) {
+      await clearInvalidTrackSession(client);
+    }
+
+    return null;
+  }
 }

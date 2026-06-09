@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Oswald } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/lib/theme";
 import { company } from "@/lib/data";
 
@@ -54,12 +52,8 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${oswald.variable} h-full`}
     >
-      <body className="min-h-full flex flex-col bg-ink text-white">
-        <ThemeProvider>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </ThemeProvider>
+      <body className="min-h-full flex flex-col bg-ink text-white antialiased">
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

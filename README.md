@@ -11,9 +11,9 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser.
+Open [http://arconstruction.ca](http://arconstruction.ca) with your browser.
 
-The contractor portal is available at [http://localhost:3000/track](http://localhost:3000/track).
+The contractor portal is available at [http://arconstruction.ca/track](http://arconstruction.ca/track).
 
 ## Environment
 
